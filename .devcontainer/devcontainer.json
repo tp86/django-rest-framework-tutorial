@@ -1,0 +1,12 @@
+{
+    "name": "Python3",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "extensions": [
+		"ms-python.python",
+		"magicstack.magicpython"
+	],
+    "settings": {},
+    "remoteUser": "vscode"
+}
