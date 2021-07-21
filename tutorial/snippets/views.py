@@ -1,34 +1,20 @@
-from rest_framework import generics, mixins
+from rest_framework import generics
 
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 
 
-class SnippetList(mixins.ListModelMixin,
-                  mixins.CreateModelMixin,
-                  generics.GenericAPIView):
+class SnippetList(generics.ListCreateAPIView):
     """
     List all code snippets, or create a new snippet.
     """
-
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
 
-    get = mixins.ListModelMixin.list
-    post = mixins.CreateModelMixin.create
 
-
-class SnippetDetail(mixins.RetrieveModelMixin,
-                    mixins.UpdateModelMixin,
-                    mixins.DestroyModelMixin,
-                    generics.GenericAPIView):
+class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a code snippet.
     """
-
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
-
-    get = mixins.RetrieveModelMixin.retrieve
-    put = mixins.UpdateModelMixin.update
-    delete = mixins.DestroyModelMixin.destroy
