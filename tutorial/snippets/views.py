@@ -8,7 +8,7 @@ from snippets.serializers import SnippetSerializer
 
 
 @api_view(['GET', 'POST'])
-def snippet_list(request: Request) -> Response:
+def snippet_list(request: Request, format=None) -> Response:
     """
     List all code snippets, or create a new snippet.
     """
@@ -26,7 +26,7 @@ def snippet_list(request: Request) -> Response:
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def snippet_detail(request: Request, pk: int):
+def snippet_detail(request: Request, pk: int, format=None):
     """
     Retrieve, update or delete a code snippet.
     """
